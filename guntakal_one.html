@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#102a43">
+<title>Guntakal One | Your Town, Connected</title>
+<style>
+:root{--navy:#102a43;--blue:#1769aa;--teal:#12a594;--ink:#172b4d;--muted:#62748a;--line:#e3eaf1;--paper:#f5f8fc;--white:#fff;--gold:#ffcc66}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+a{color:inherit}.topbar{background:var(--navy);color:white;padding:12px 5vw;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:11px;font-weight:850;letter-spacing:-.4px}.logo{width:42px;height:42px;border-radius:14px;background:linear-gradient(135deg,#16b8a6,#72d6cb);display:grid;place-items:center;color:#082f49;font-size:22px;box-shadow:0 6px 18px #0002}.brand small{display:block;font-size:11px;letter-spacing:1.5px;color:#b7c9d9;font-weight:650;margin-top:2px}
+.topnav{display:flex;gap:18px;align-items:center;flex-wrap:wrap}.topnav a{text-decoration:none;font-size:13px;color:#d7e4ef}.topnav a:hover{color:var(--gold)}
+.hero{background:radial-gradient(circle at 80% 10%,#1b7184 0,transparent 32%),linear-gradient(120deg,#102a43,#174e68 65%,#176b72);color:white;padding:54px 5vw 48px;position:relative;overflow:hidden}.hero:after{content:"";position:absolute;width:310px;height:310px;border:1px solid #ffffff20;border-radius:50%;right:-85px;bottom:-190px;box-shadow:0 0 0 35px #ffffff08,0 0 0 70px #ffffff05}
+.hero-inner{max-width:1120px;margin:auto;position:relative;z-index:1}.eyebrow{color:#a7f3e8;font-weight:800;letter-spacing:2px;text-transform:uppercase;font-size:11px}.hero h1{font-size:clamp(34px,6vw,62px);letter-spacing:-2px;line-height:1.04;margin:14px 0 14px;max-width:750px}.hero p{font-size:16px;color:#d4e4ef;max-width:640px;line-height:1.7;margin:0 0 25px}.searchbar{display:flex;gap:10px;max-width:760px;background:white;padding:8px;border-radius:16px;box-shadow:0 16px 40px #061a2a40}.searchbar input{min-width:0;flex:1;border:0;outline:0;padding:12px 13px;font-size:15px;color:var(--ink);background:transparent}.btn{border:0;border-radius:11px;background:var(--teal);color:#062f37;font-weight:800;padding:12px 17px;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:8px;font-size:13px}.btn:hover{filter:brightness(.96);transform:translateY(-1px)}.btn-white{background:white;color:var(--navy)}.btn-outline{border:1px solid var(--line);background:white;color:var(--ink)}
+.hero-meta{display:flex;gap:9px;flex-wrap:wrap;margin-top:18px}.pill{border:1px solid #ffffff30;background:#ffffff12;color:#e2f3fa;border-radius:100px;padding:7px 11px;font-size:11px}
+main{max-width:1200px;margin:auto;padding:32px 5vw 60px}.section-head{display:flex;justify-content:space-between;align-items:end;gap:15px;margin:0 0 18px;flex-wrap:wrap}.section-head h2{margin:0;font-size:25px;letter-spacing:-.7px}.section-head p{margin:5px 0 0;color:var(--muted);font-size:13px}.small-link{font-size:12px;color:var(--blue);font-weight:750;text-decoration:none}
+.quick-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-bottom:38px}.quick{background:white;border:1px solid var(--line);border-radius:16px;padding:17px;text-decoration:none;display:flex;gap:12px;align-items:center;min-height:88px;box-shadow:0 3px 12px #0b315008;transition:.18s}.quick:hover,.category:hover{transform:translateY(-2px);box-shadow:0 10px 24px #0b315012;border-color:#c5d8e7}.quick-icon{width:43px;height:43px;flex-shrink:0;border-radius:13px;display:grid;place-items:center;font-size:22px;background:#e7f6f4}.quick strong{display:block;font-size:13px}.quick span{display:block;font-size:11px;color:var(--muted);margin-top:4px}
+.category-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}.category{border:1px solid var(--line);background:white;border-radius:15px;padding:16px;text-align:left;cursor:pointer;transition:.18s;min-height:125px;color:var(--ink)}.category.active{border-color:var(--teal);box-shadow:0 0 0 2px #12a59420;background:#f0fffc}.cat-icon{font-size:25px;display:block;margin-bottom:12px}.category strong{font-size:13px;display:block}.category small{display:block;color:var(--muted);font-size:11px;margin-top:5px;line-height:1.4}
+.explore{margin-top:38px;background:white;border:1px solid var(--line);border-radius:20px;padding:24px;display:grid;grid-template-columns:1.1fr .9fr;gap:24px;align-items:center}.explore h2{font-size:24px;margin:0 0 8px;letter-spacing:-.7px}.explore p{font-size:13px;color:var(--muted);line-height:1.7;margin:0 0 18px}.map-preview{background:linear-gradient(145deg,#e0f2ec,#e9f1f8);border-radius:16px;min-height:210px;position:relative;overflow:hidden;display:grid;place-items:center;text-align:center;padding:20px}.map-preview:before,.map-preview:after{content:"";position:absolute;width:150%;height:35px;background:#fff9;transform:rotate(-25deg);top:30%;left:-20%}.map-preview:after{transform:rotate(32deg);top:65%;background:#ffffffa8}.map-pin{font-size:38px;position:relative;z-index:1;filter:drop-shadow(0 5px 3px #0002)}.map-preview b,.map-preview span{position:relative;z-index:1;display:block}.map-preview span{font-size:11px;color:#486274;margin-top:5px}
+.directory{margin-top:40px}.toolbar{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0}.toolbar input,.toolbar select{border:1px solid var(--line);border-radius:11px;background:white;padding:12px;font:inherit;font-size:13px;color:var(--ink)}.toolbar input{flex:1;min-width:200px}.results-info{font-size:12px;color:var(--muted);margin:0 0 12px}.results{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.place{background:white;border:1px solid var(--line);border-radius:15px;padding:17px;display:flex;flex-direction:column;gap:10px;min-width:0}.place-top{display:flex;align-items:flex-start;gap:10px}.place-icon{width:42px;height:42px;border-radius:13px;background:#edf6fb;display:grid;place-items:center;font-size:21px;flex-shrink:0}.place h3{font-size:14px;margin:2px 0 4px}.place .kind{font-size:11px;color:var(--muted)}.place p{font-size:12px;color:var(--muted);line-height:1.6;margin:0}.place-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:auto}.place-actions a{font-size:11px;padding:9px 10px}.notice{background:#fff8e8;border:1px solid #f4dfaa;border-radius:12px;padding:13px 15px;color:#77561a;font-size:12px;line-height:1.6;margin-top:18px}
+footer{background:#0c2236;color:#d6e2ec;padding:28px 5vw}.footer-inner{max-width:1100px;margin:auto;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}.footer-inner p{font-size:12px;color:#a9bfce;line-height:1.6;max-width:600px;margin:8px 0 0}.footer-links{display:flex;gap:15px;flex-wrap:wrap}.footer-links a{font-size:12px;color:#d6e2ec;text-decoration:none}
+.empty{grid-column:1/-1;text-align:center;background:white;border:1px dashed #cbd7e2;border-radius:15px;padding:35px;color:var(--muted);font-size:13px}
+@media(max-width:900px){.quick-grid,.category-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.results{grid-template-columns:repeat(2,minmax(0,1fr))}.explore{grid-template-columns:1fr}.topnav{gap:11px}}
+@media(max-width:600px){.topbar{padding:12px 5vw}.topnav{width:100%;justify-content:space-between}.topnav a{font-size:11px}.hero{padding:40px 5vw 35px}.searchbar{border-radius:13px}.searchbar .btn{padding:11px 12px}.quick-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.quick{padding:12px;gap:9px;min-height:78px}.quick-icon{width:37px;height:37px;font-size:19px}.category-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.category{padding:13px;min-height:116px}.results{grid-template-columns:1fr}.explore{padding:18px}.section-head h2{font-size:22px}main{padding-top:25px}.hero h1{letter-spacing:-1.4px}}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="#" style="text-decoration:none">
+    <span class="logo">G</span><span>GUNTAKAL ONE<small>YOUR TOWN, CONNECTED</small></span>
+  </a>
+  <nav class="topnav" aria-label="Main navigation">
+    <a href="#categories">Categories</a><a href="#directory">Explore places</a><a href="#maps">Maps & directions</a>
+  </nav>
+</header>
+<section class="hero">
+  <div class="hero-inner">
+    <div class="eyebrow">Discover • Connect • Explore</div>
+    <h1>Everything in Guntakal.<br>All in one place.</h1>
+    <p>A town directory for everyday life. Find services, businesses, public facilities and places around Guntakal, then open their location in Google Maps.</p>
+    <form class="searchbar" id="heroSearch"><input id="heroInput" type="search" placeholder="Try hospitals, cement shops, schools..." aria-label="Search categories and places"><button class="btn" type="submit">⌕ Search</button></form>
+    <div class="hero-meta"><span class="pill">📍 Guntakal, Andhra Pradesh</span><span class="pill">🌐 English + తెలుగు ready</span><span class="pill">↗ Google Maps links</span><span class="pill">No account required</span></div>
+  </div>
+</section>
+<main>
+  <section>
+    <div class="section-head"><div><h2>Quick access</h2><p>Commonly needed places and essential services</p></div></div>
+    <div class="quick-grid" id="quickGrid"></div>
+  </section>
+  <section id="categories">
+    <div class="section-head"><div><h2>Explore by category</h2><p>Choose a category to discover matching places on Google Maps.</p></div><a class="small-link" href="#directory">Browse all categories ↓</a></div>
+    <div class="category-grid" id="categoryGrid"></div>
+  </section>
+  <section class="explore" id="maps">
+    <div><div class="eyebrow" style="color:#138c80">Location first</div><h2>Find it. Navigate to it.</h2><p>Use Google Maps search links without a Maps API key. Search for a place or category in Guntakal, open the result in Maps, and use Google Maps for directions and available place details.</p><a class="btn" id="generalMapLink" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=places+in+Guntakal+Andhra+Pradesh">Explore Guntakal on Maps ↗</a></div>
+    <div class="map-preview"><div><div class="map-pin">📍</div><b>Guntakal, Andhra Pradesh</b><span>Open Google Maps to see real map pins and directions</span></div></div>
+  </section>
+  <section class="directory" id="directory">
+    <div class="section-head"><div><h2>Explore places</h2><p>Search a category or type the name of a place you need.</p></div></div>
+    <div class="toolbar"><input id="directorySearch" type="search" placeholder="Search categories or a specific place…"><select id="categoryFilter" aria-label="Filter by category"><option value="all">All categories</option></select><button class="btn btn-outline" id="mapsSearchBtn" type="button">Search Google Maps ↗</button></div>
+    <p class="results-info" id="resultsInfo" aria-live="polite"></p>
+    <div class="results" id="results"></div>
+    <div class="notice"><strong>About this first version:</strong> This is a front-end prototype and has no connected database. Place cards are category shortcuts, not a claim that a particular business has been verified. Google Maps may show available business names, phone numbers, opening hours, ratings and directions. Information varies by listing. Later, a database and verified local directory can be added.</div>
+  </section>
+</main>
+<footer><div class="footer-inner"><div><strong>GUNTAKAL ONE</strong><p>A community-first town directory concept. Google Maps opens separately for live map results. Always confirm important contact details and operating hours before travelling.</p></div><div class="footer-links"><a href="#categories">Categories</a><a href="#directory">Explore places</a><a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Guntakal+Andhra+Pradesh">Google Maps ↗</a></div></div></footer>
+<script>
+const categories = [
+{n:"Hospitals & clinics",i:"🏥",d:"Hospitals, clinics, diagnostics",q:"hospitals clinics"},
+{n:"Emergency services",i:"🚨",d:"Fire, police, ambulance",q:"fire station police ambulance"},
+{n:"Hotels & lodging",i:"🛏️",d:"Hotels, lodges, guest houses",q:"hotels lodges"},
+{n:"Restaurants & tiffins",i:"🍽️",d:"Restaurants, cafes, tiffin centres",q:"restaurants tiffin centres"},
+{n:"Schools",i:"🏫",d:"Government and private schools",q:"schools"},
+{n:"Colleges & coaching",i:"🎓",d:"Colleges, institutes, coaching",q:"colleges coaching institutes"},
+{n:"Railway services",i:"🚆",d:"Railway station and enquiries",q:"railway station railway services"},
+{n:"Bus services",i:"🚌",d:"Bus stand and bus services",q:"bus station bus services"},
+{n:"Autos, taxis & travel",i:"🚕",d:"Auto stands, cabs, travel agents",q:"taxi auto stand travel agency"},
+{n:"Goods transport & courier",i:"📦",d:"Parcel, delivery, logistics",q:"courier delivery logistics transport"},
+{n:"Government offices",i:"🏛️",d:"Municipality and public offices",q:"government offices"},
+{n:"Ward secretariats",i:"🏢",d:"Ward and village secretariats",q:"ward secretariat village secretariat"},
+{n:"Polling stations",i:"🗳️",d:"Polling locations and public notices",q:"polling stations"},
+{n:"Agriculture services",i:"🌾",d:"Agriculture offices, seeds, fertilizer",q:"agriculture office seed fertilizer shops"},
+{n:"Water services",i:"🚰",d:"Water tanks and public water points",q:"water tank public water supply"},
+{n:"Iron & steel shops",i:"🏗️",d:"Steel, iron and metal suppliers",q:"iron steel shops"},
+{n:"Cement & building materials",i:"🧱",d:"Cement, bricks, sand, aggregates",q:"cement building materials shops"},
+{n:"Paint & hardware shops",i:"🪣",d:"Paints, tools and hardware",q:"paint shops hardware stores"},
+{n:"Electrical shops",i:"💡",d:"Electrical goods and electricians",q:"electrical shops electricians"},
+{n:"Plumbers & carpenters",i:"🛠️",d:"Home repair and installation",q:"plumbers carpenters"},
+{n:"Painters & contractors",i:"🖌️",d:"Painting, civil works, contractors",q:"house painters painting contractors"},
+{n:"Supermarkets & groceries",i:"🛒",d:"Grocery stores and supermarkets",q:"supermarkets grocery stores"},
+{n:"Banks & ATMs",i:"🏦",d:"Banks, ATMs, financial services",q:"banks ATMs"},
+{n:"Pharmacies",i:"💊",d:"Medical shops and pharmacies",q:"pharmacies medical shops"},
+{n:"Diagnostic labs",i:"🧪",d:"Labs and scan centres",q:"diagnostic labs scan centres"},
+{n:"Beauty parlours & salons",i:"💇",d:"Beauty, grooming, salons",q:"beauty parlours salons"},
+{n:"Gyms & fitness",i:"🏋️",d:"Gyms, yoga, fitness centres",q:"gyms fitness centres yoga"},
+{n:"Temples & places of worship",i:"🛕",d:"Temples and other places of worship",q:"temples places of worship"},
+{n:"Gardens & municipal parks",i:"🌳",d:"Parks, gardens and open spaces",q:"parks gardens"},
+{n:"Cinema theatres",i:"🎬",d:"Theatres and entertainment",q:"cinema theatres"},
+{n:"Wedding & function halls",i:"💐",d:"Marriage halls and event venues",q:"function halls marriage halls"},
+{n:"Sports & recreation",i:"⚽",d:"Sports grounds and recreation",q:"sports grounds stadiums"},
+{n:"Godowns & warehouses",i:"🏭",d:"Storage and wholesale facilities",q:"godowns warehouses"},
+{n:"Industrial suppliers",i:"⚙️",d:"Industrial goods and services",q:"industrial suppliers"},
+{n:"Vehicle repair & service",i:"🔧",d:"Mechanics, garages, tyres",q:"vehicle repair garages tyre shops"},
+{n:"Petrol pumps & EV charging",i:"⛽",d:"Fuel stations and charging",q:"petrol pumps EV charging stations"},
+{n:"Post offices",i:"✉️",d:"Postal and related services",q:"post offices"},
+{n:"Internet & mobile shops",i:"📱",d:"Mobile stores and internet services",q:"mobile shops internet service providers"},
+{n:"Real estate & rentals",i:"🏠",d:"Property agents and rentals",q:"real estate property rentals"},
+{n:"Legal & documentation",i:"⚖️",d:"Advocates and document services",q:"advocates legal services document writers"},
+{n:"Tailors & laundry",i:"🧵",d:"Tailoring, laundry, dry cleaning",q:"tailors laundry dry cleaners"},
+{n:"Delivery points",i:"🚚",d:"Pickup points and parcel centres",q:"parcel pickup delivery points"},
+{n:"Public toilets",i:"🚻",d:"Public convenience facilities",q:"public toilets"},
+{n:"GIMS & medical institutions",i:"🩺",d:"Medical institutions and related services",q:"GIMS medical institution"},
+{n:"MAUD & municipal services",i:"🏙️",d:"Municipal administration and urban services",q:"municipal administration urban development office"},
+{n:"MeeSeva & citizen services",i:"🪪",d:"Citizen service centres",q:"MeeSeva service centres"},
+{n:"Libraries & study centres",i:"📚",d:"Libraries and reading rooms",q:"libraries study centres"},
+{n:"Photography & printing",i:"📷",d:"Studios, print and photocopy",q:"photo studios printing photocopy shops"},
+{n:"Pet care & veterinary",i:"🐾",d:"Veterinary clinics and pet services",q:"veterinary clinics pet shops"},
+{n:"Other local services",i:"✨",d:"Search any other service in town",q:"services"}
+];
+const quickNames=["Hospitals & clinics","Emergency services","Hotels & lodging","Railway services","Bus services","Government offices","Pharmacies","Banks & ATMs"];
+const catGrid=document.getElementById("categoryGrid"),quickGrid=document.getElementById("quickGrid"),filter=document.getElementById("categoryFilter"),search=document.getElementById("directorySearch"),results=document.getElementById("results"),info=document.getElementById("resultsInfo");
+let active="all";
+function mapsUrl(query){return "https://www.google.com/maps/search/?api=1&query="+encodeURIComponent(query+" in Guntakal, Andhra Pradesh, India")}
+function mapSearchText(){const term=search.value.trim();const selected=filter.value==="all"?"":(categories.find(c=>c.n===filter.value)?.q||filter.value);return [term,selected].filter(Boolean).join(" ")||"places"}
+function setActive(name){active=name;filter.value=name;renderCategories();renderResults();document.getElementById("directory").scrollIntoView({behavior:"smooth",block:"start"})}
+categories.forEach(c=>{const o=document.createElement("option");o.value=c.n;o.textContent=c.n;filter.appendChild(o)});
+function renderCategories(){catGrid.innerHTML="";categories.forEach(c=>{const b=document.createElement("button");b.className="category"+(active===c.n?" active":"");b.innerHTML=`<span class="cat-icon">${c.i}</span><strong>${c.n}</strong><small>${c.d}</small>`;b.addEventListener("click",()=>setActive(c.n));catGrid.appendChild(b)})}
+function renderQuick(){quickGrid.innerHTML="";quickNames.forEach(n=>{const c=categories.find(x=>x.n===n);const a=document.createElement("a");a.className="quick";a.href=mapsUrl(c.q);a.target="_blank";a.rel="noopener";a.innerHTML=`<span class="quick-icon">${c.i}</span><span><strong>${c.n}</strong><span>${c.d}</span></span>`;quickGrid.appendChild(a)})}
+function renderResults(){const term=search.value.trim().toLowerCase();const chosen=filter.value;const arr=categories.filter(c=>(chosen==="all"||c.n===chosen)&&(!term||(c.n+" "+c.d+" "+c.q).toLowerCase().includes(term)));results.innerHTML="";info.textContent=`Showing ${arr.length} category ${arr.length===1?"shortcut":"shortcuts"} · Google Maps opens in a new tab or app.`;if(!arr.length){results.innerHTML='<div class="empty">No category matches that search. Use “Search Google Maps” to search any business or place in Guntakal.</div>';return}arr.forEach(c=>{const card=document.createElement("article");card.className="place";card.innerHTML=`<div class="place-top"><div class="place-icon">${c.i}</div><div><h3>${c.n}</h3><div class="kind">Guntakal · Category shortcut</div></div></div><p>${c.d}. Search Google Maps for current listings, available contact details, opening hours and directions.</p><div class="place-actions"><a class="btn" target="_blank" rel="noopener" href="${mapsUrl(c.q)}">View on Maps ↗</a><a class="btn btn-outline" target="_blank" rel="noopener" href="${mapsUrl(c.q)}">Directions / results</a></div>`;results.appendChild(card)})}
+document.getElementById("heroSearch").addEventListener("submit",e=>{e.preventDefault();search.value=document.getElementById("heroInput").value;filter.value="all";active="all";renderCategories();renderResults();document.getElementById("directory").scrollIntoView({behavior:"smooth"})});
+search.addEventListener("input",renderResults);filter.addEventListener("change",()=>{active=filter.value;renderCategories();renderResults()});
+document.getElementById("mapsSearchBtn").addEventListener("click",()=>window.open(mapsUrl(mapSearchText()),"_blank","noopener"));
+renderCategories();renderQuick();renderResults();
+</script>
+</body>
+</html>
